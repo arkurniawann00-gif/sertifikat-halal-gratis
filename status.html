@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cek Status Sertifikasi Halal</title>
+  <link rel="icon" href="logo.png" type="image/png" />
+  <style>
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background-color: #f7f8fa;
+      color: #333;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      color: #006241;
+      margin-bottom: 1rem;
+    }
+    input {
+      padding: 10px;
+      width: 80%;
+      max-width: 400px;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #006241;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    a {
+      display: block;
+      margin-top: 1.5rem;
+      color: #006241;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cek Status Pendaftaran</h1>
+  <p>Masukkan <b>nama lengkap</b> Anda untuk melihat status pendaftaran.</p>
+  <input type="text" id="namaCari" placeholder="Contoh: Budi Santoso" />
+  <button onclick="cekStatus()">Cari</button>
+  <p id="hasil"></p>
+  <a href="index.html">← Kembali ke Halaman Utama</a>
+
+  <script>
+    function cekStatus() {
+      const nama = document.getElementById("namaCari").value.trim().toLowerCase();
+      const hasil = document.getElementById("hasil");
+      if (!nama) {
+        hasil.innerHTML = "❗ Silakan masukkan nama terlebih dahulu.";
+        return;
+      }
+
+      // Contoh data sementara
+      const data = {
+        "rubai ahmad": "✅ Disetujui - Sedang dalam proses BPJPH",
+        "siti aminah": "⏳ Menunggu verifikasi berkas",
+        "agus salim": "✅ Selesai - Sertifikat diterbitkan"
+      };
+
+      hasil.innerHTML = data[nama] || "❌ Data tidak ditemukan. Hubungi fasilitator untuk konfirmasi.";
+    }
+  </script>
+</body>
+</html>
