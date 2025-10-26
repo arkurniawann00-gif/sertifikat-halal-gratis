@@ -1,69 +1,117 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SEHATI - Sertifikat Halal Gratis</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sertifikat Halal Gratis</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #f8f0ff, #e8d9f5);
+      background-color: #f8f9fa;
       margin: 0;
       padding: 0;
       color: #333;
+    }
+    header {
+      background-color: #006241;
+      color: white;
       text-align: center;
+      padding: 1.5rem 0;
     }
-    .container {
-      max-width: 700px;
-      margin: 50px auto;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      padding: 30px 20px;
-    }
-    img.logo {
-      width: 120px;
+    header img {
+      width: 90px;
       margin-bottom: 10px;
     }
-    h1 {
-      color: #008037;
-      font-size: 42px;
-      margin: 10px 0;
+    main {
+      max-width: 600px;
+      margin: 2rem auto;
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    h2 {
-      color: #8b3bb3;
-      font-weight: normal;
-      font-size: 22px;
-      margin-bottom: 5px;
+    h1 {
+      color: #006241;
+      text-align: center;
     }
     p {
-      font-size: 17px;
-      line-height: 1.6;
-      margin: 10px 0 25px;
+      text-align: center;
+      font-size: 1rem;
     }
-    .contact {
-      font-size: 15px;
-      color: #555;
-      margin-top: 15px;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 1rem;
     }
-    .contact strong {
-      color: #000;
+    input, textarea {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      width: 100%;
+    }
+    button {
+      background-color: #25D366;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #1ebe5d;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #f1f1f1;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="logo.png" alt="Logo SEHATI" class="logo">
-    <h2>eForm Pendaftaran Mandiri</h2>
-    <h1>SEHATI</h1>
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Halal-logo.png" alt="Logo Halal" />
+    <h1>Sertifikat Halal Gratis</h1>
+  </header>
+
+  <main>
     <p>
       Daftar dan dapatkan pendampingan resmi untuk proses Sertifikasi Halal tanpa biaya, 
-      bersama <strong>Rubai Ahmad</strong> sebagai fasilitator <strong>BPJPH</strong>.
+      bersama <b>Rubai Ahmad</b> sebagai fasilitator <b>BPJPH</b>.
+      <br><br>
+      📧 Email: <b>arkurniawann00@gmail.com</b>
     </p>
-    <div class="contact">
-      Email: <a href="mailto:arkurniawann00@gmail.com">arkurniawann00@gmail.com</a><br>
-      Telepon: <strong>081999197400</strong>
-    </div>
-  </div>
+
+    <form id="formHalal">
+      <input type="text" id="nama" placeholder="Nama Lengkap" required />
+      <input type="text" id="usaha" placeholder="Nama Usaha / Produk" required />
+      <input type="text" id="kota" placeholder="Kota / Kabupaten" required />
+      <button type="button" id="kirimWA">Kirim via WhatsApp</button>
+    </form>
+  </main>
+
+  <footer>
+    © 2025 Sertifikasi Halal Gratis — Fasilitator BPJPH: Rubai Ahmad
+  </footer>
+
+  <script>
+    document.getElementById('kirimWA').addEventListener('click', function() {
+      const nama = document.getElementById('nama').value;
+      const usaha = document.getElementById('usaha').value;
+      const kota = document.getElementById('kota').value;
+
+      const pesan = `Halo, saya ingin daftar Sertifikasi Halal Gratis.%0A%0A` +
+                    `Nama: ${nama}%0AUsaha: ${usaha}%0AKota: ${kota}`;
+      const noWA = '6281999197400';
+      const url = `https://wa.me/${noWA}?text=${pesan}`;
+
+      window.open(url, '_blank');
+    });
+  </script>
 </body>
 </html>
